@@ -6,10 +6,10 @@ const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // function reset() {
-    //     setEmail('');
-    //     setPassword(''); 
-    // };
+    function reset() {
+        setEmail('');
+        setPassword(''); 
+    };
     const handleChange = event => {
         const { name, value } = event.currentTarget;
 
@@ -25,8 +25,14 @@ const LoginForm = () => {
         }
         // console.log("in change", value)
     }
+    const handleSubmit = event => {
+        event.preventDefault();
+        const data = { email, password };
+        console.log("сабміт ін логін", data);
+        reset(); 
+    }
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <label>
                 Emaill:
                 <input type="email"
@@ -45,7 +51,10 @@ const LoginForm = () => {
                     onChange={handleChange}
                 />
             </label>
-            <button type="submit">Log in</button>
+            <button
+                type="submit"
+                
+            >Log in</button>
         </form>
     )
 }

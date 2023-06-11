@@ -6,11 +6,11 @@ const RegisterForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    // function reset() {
-    //     setName('');
-    //     setEmail('');
-    //     setPassword(''); 
-    // };
+    function reset() {
+        setName('');
+        setEmail('');
+        setPassword(''); 
+    };
 
     const handleChange = event => {
         const { name, value } = event.currentTarget;
@@ -31,10 +31,15 @@ const RegisterForm = () => {
         // console.log("in change", value)
     }
 
-    
+      const handleSubmit = event => {
+        event.preventDefault();
+        const data = { name, email, password };
+        console.log("сабміт ін регістер", data);
+        reset(); 
+    }
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <label> 
                 Username: 
                 <input
@@ -65,7 +70,10 @@ const RegisterForm = () => {
                     onChange={handleChange}
                 />
             </label>
-            <button type="submit">Register</button>
+            <button
+                type="submit"
+                
+            >Register</button>
         </form>
     )
 }

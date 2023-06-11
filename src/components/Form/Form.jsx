@@ -55,7 +55,8 @@ export default function Form() {
         }
         else { 
             
-            const data = {id: nanoid(), name, number }
+            const data = { id: nanoid(), name, number };
+            console.log("сабміт ін form", data);
             dispatch(addContact(data));         
         }  
         
