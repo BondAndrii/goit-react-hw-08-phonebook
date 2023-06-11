@@ -1,10 +1,11 @@
 
 const UserMenu = () => {
     return (
-    <div>
-        <p>mango@mail.com</p>
-        <button>Logout</button>
-    </div>
+        <div>
+            <h2>Заголовок</h2>
+            <p> welcome mango@mail.com</p>
+            <button>LogOut</button>
+        </div>
     )
 }
 

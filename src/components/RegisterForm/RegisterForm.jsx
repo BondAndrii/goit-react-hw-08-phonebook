@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { register } from "redux/auth/operations";
 
 
 const RegisterForm = () => {
+    const dispatch = useDispatch();
+
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -34,7 +38,8 @@ const RegisterForm = () => {
       const handleSubmit = event => {
         event.preventDefault();
         const data = { name, email, password };
-        console.log("сабміт ін регістер", data);
+          dispatch(register(data))
+        // console.log("сабміт ін регістер", data);
         reset(); 
     }
 
