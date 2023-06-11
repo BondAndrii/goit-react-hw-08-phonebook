@@ -6,11 +6,11 @@ const RegisterForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    function reset() {
-        setName('');
-        setEmail('');
-        setPassword(''); 
-    };
+    // function reset() {
+    //     setName('');
+    //     setEmail('');
+    //     setPassword(''); 
+    // };
 
     const handleChange = event => {
         const { name, value } = event.currentTarget;

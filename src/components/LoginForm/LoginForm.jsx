@@ -6,10 +6,10 @@ const LoginForm = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    function reset() {
-        setEmail('');
-        setPassword(''); 
-    };
+    // function reset() {
+    //     setEmail('');
+    //     setPassword(''); 
+    // };
     const handleChange = event => {
         const { name, value } = event.currentTarget;
 
@@ -23,7 +23,7 @@ const LoginForm = () => {
             default:
                 return;
         }
-        console.log("in change", value)
+        // console.log("in change", value)
     }
     return (
         <form>
