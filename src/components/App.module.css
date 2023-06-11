@@ -1,0 +1,19 @@
+.Container {
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    width: 600px;
+    height: 1020px;
+    background-color: beige;
+    border: 3px solid green;
+    border-radius: 20px;
+}
+.Tittle {
+    text-align: center;
+    color: green;
+}
+.SecondTittle {
+    text-align: center;
+    color: green;
+}
