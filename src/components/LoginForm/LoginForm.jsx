@@ -1,10 +1,13 @@
 import { useState } from "react";
-// import { useDispatch } from "react-redux";
+
+import { useDispatch } from "react-redux";
+
+import { loginer } from "redux/auth/operations";
 
 
 
 const LoginForm = () => {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -31,8 +34,8 @@ const LoginForm = () => {
     const handleSubmit = event => {
         event.preventDefault();
         const data = { email, password };
-
-        console.log("сабміт ін логін", data);
+        dispatch(loginer(data));
+        // console.log("сабміт ін логін", data);
         reset(); 
     }
     return (

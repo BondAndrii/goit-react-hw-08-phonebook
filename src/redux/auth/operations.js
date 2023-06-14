@@ -33,3 +33,13 @@ export const register = createAsyncThunk('auth/register', async (data, thunkApi)
         return thunkApi.rejectWithValue(error.message);
     }
 })
+
+export const loginer = createAsyncThunk('auth/loginer', async (data, thunkApi) => {
+    try {
+        const response = await axios.post('/users/login', data);
+        setAuthHeader(response.data.token);
+        return response.data;
+    } catch (error) {
+        return thunkApi.rejectWithValue(error.message);
+    }
+})
