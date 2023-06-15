@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 
 import { Route, Routes } from 'react-router-dom';
 
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { fetchContacts } from "redux/contacts/contactsOperations";
 
@@ -28,10 +28,10 @@ import RegisterForm from "../pages/RegisterForm/RegisterForm";
 
 // import styles from "./App.module.css";
 
-// import {
-//   selectIsLoggedIn,
-//   selectIsRefreching
-// } from "redux/auth/selectors";
+import {
+  // selectIsLoggedIn,
+  selectIsRefreching
+} from "redux/auth/selectors";
 
 // import UserMenu from "./UserMenu/UserMenu";
 
@@ -45,32 +45,35 @@ import { Layout } from "./Layout/Layout";
 
 import Contacts from "pages/Contacts/Contacts";
 
+import { refreshUser } from "redux/auth/operations";
+
 
 export default function App() {
   const dispatch = useDispatch();
   // const isLoggedIn = useSelector(selectIsLoggedIn);
   // const isLoading = useSelector(selectIsLoading);
   // const error = useSelector(selectError);
-  // const isRefreshing = useSelector(selectIsRefreching);
+  const isRefreshing = useSelector(selectIsRefreching);
  
   useEffect(() => {
     dispatch(fetchContacts());
   },[dispatch])
 
-  //  useEffect(() => {
-  //   dispatch(refreshUser());
-  // },[dispatch])
+   useEffect(() => {
+    dispatch(refreshUser());
+  },[dispatch])
   
   return (
-    <Routes>
-      <Route path='/' element={<Layout />}>
-        <Route index element={<Home />} ></Route>
-        <Route path='register' element={<RegisterForm />}></Route>
-        <Route path="login" element={<LoginForm />}></Route>
-        <Route path="contacts" element={<Contacts/>}></Route>
-      </Route>
-        
-    </Routes>
+    !isRefreshing ? ("Fetching user data") : (
+      <Routes>
+        <Route path='/' element={<Layout />}>
+          <Route index element={<Home />} ></Route>
+          <Route path='register' element={<RegisterForm />}></Route>
+          <Route path="login" element={<LoginForm />}></Route>
+          <Route path="contacts" element={<Contacts/>}></Route>
+        </Route>        
+      </Routes>
+    )
     // <div className={styles.Container}>
     //   {/* <Navigation/> */}
     //    {/* {isLoggedIn ? <UserMenu/> : <AuthNav/>} */}
