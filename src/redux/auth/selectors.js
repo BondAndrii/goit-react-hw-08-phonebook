@@ -5,4 +5,6 @@ export const selectIsLoggedIn = state => {
     return state.auth.isLoggedIn;
 }
 
-export const selectUser = state => state.auth.user.name
+export const selectUser = state => state.auth.user.name;
+
+export const selectIsRefreching = state => state.auth.isRefreshing;

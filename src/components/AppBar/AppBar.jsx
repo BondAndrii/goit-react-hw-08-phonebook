@@ -6,14 +6,18 @@ import AuthNav from "components/AuthNav/AuthNav";
 
 import UserMenu from "components/UserMenu/UserMenu";
 
+import Navigation from "components/Navigation/Navigation";
+
 
 const AppBar = () => {
 
     const isLoggedIn = useSelector(selectIsLoggedIn);
-    console.log("in App", isLoggedIn)
+    // console.log("in App", isLoggedIn)
 
     return (
         <header>
+            <h2>Phonebook</h2>
+            <Navigation/>
             {isLoggedIn ? <UserMenu/> : <AuthNav/>}
         </header>
     )

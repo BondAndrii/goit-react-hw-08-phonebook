@@ -11,8 +11,7 @@ const UserMenu = () => {
     const dispatch = useDispatch();
     const handleLogOut = () => dispatch(logouter())
     return (
-        <div>
-            <h2>Заголовок</h2>
+        <div>            
             <p> welcome, {name}!</p>
             <button onClick={handleLogOut}>LogOut</button>
         </div>
