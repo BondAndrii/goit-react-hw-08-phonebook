@@ -10,9 +10,9 @@ const setAuthHeader = token => {
     axios.defaults.headers.common.Authorization = `Bearer ${token} `
 }
 
-// const clearAuthHeader = () => {
-//     axios.defaults.headers.common.Authorization = '';
-// }
+const clearAuthHeader = () => {
+    axios.defaults.headers.common.Authorization = '';
+}
 // export const token = {
 //     set(token) {
 //         axios.defaults.headers.common.Authorization = `Bearer ${token}`
@@ -22,24 +22,36 @@ const setAuthHeader = token => {
 //     }
 // };
 
-export const register = createAsyncThunk('auth/register', async (data, thunkApi) => {
+export const register = createAsyncThunk('auth/register',
+    async (data, thunkApi) => {
     // console.log("in register data", data)
-    try {
-        const response = await axios.post('/users/signup', data);
-        setAuthHeader(response.data.token);
-        // console.log("in register", response.data)
-        return response.data;
-    } catch (error) {
-        return thunkApi.rejectWithValue(error.message);
-    }
+        try {
+            const response = await axios.post('/users/signup', data);
+            setAuthHeader(response.data.token);
+            // console.log("in register", response.data)
+            return response.data;
+        } catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+        }
 })
 
-export const loginer = createAsyncThunk('auth/loginer', async (data, thunkApi) => {
-    try {
-        const response = await axios.post('/users/login', data);
-        setAuthHeader(response.data.token);
-        return response.data;
-    } catch (error) {
-        return thunkApi.rejectWithValue(error.message);
-    }
+export const loginer = createAsyncThunk('auth/loginer',
+    async (data, thunkApi) => {
+        try {
+            const response = await axios.post('/users/login', data);
+            setAuthHeader(response.data.token);
+            return response.data;
+        } catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+        }
+})
+
+export const logouter = createAsyncThunk('auth/logouter',
+    async (_, thunkApi) => {
+        try {
+            await axios.post('/users/logout');
+            clearAuthHeader();
+        } catch (error) {
+            return thunkApi.rejectWithValue(error.message);
+        }
 })

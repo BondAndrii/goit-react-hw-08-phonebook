@@ -2,16 +2,24 @@ import axios from "axios";
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
+import { selectIsLoggedIn } from "redux/auth/selectors";
+
+import { useSelector } from "react-redux";
+
 // import { contactsUrl } from "data/contactsLink";
 
 // axios.defaults.baseURL = contactsUrl;
 
 export const fetchContacts = createAsyncThunk("contacts/fetchAll", async (_, thunkAPI) => {
-    try {
-        const response = await axios.get("/contacts");
-        return response.data;
-    } catch (error) {
-        return thunkAPI.rejectWithValue(error.message);
+    const isLoggedIn = useSelector(selectIsLoggedIn);
+    if (isLoggedIn) {
+        try {
+                const response = await axios.get("/contacts");
+                return response.data;
+            } catch (error) {
+                return thunkAPI.rejectWithValue(error.message);
+            }
+    
     }
     
 });
