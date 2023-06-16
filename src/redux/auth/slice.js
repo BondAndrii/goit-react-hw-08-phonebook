@@ -1,6 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { loginer, logouter, refreshUser, register } from "./operations";
+import {
+    loginer, logouter,
+    // refreshUser,
+    register
+} from "./operations";
 
 // import storage from 'redux-persist/lib/storage';
 

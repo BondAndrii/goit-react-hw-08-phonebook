@@ -45,7 +45,7 @@ import { Layout } from "./Layout/Layout";
 
 import Contacts from "pages/Contacts/Contacts";
 
-import { refreshUser } from "redux/auth/operations";
+// import { refreshUser } from "redux/auth/operations";
 
 
 export default function App() {
