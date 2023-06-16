@@ -4,7 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 
 import {
   useDispatch,
-  // useSelector
+  useSelector
 } from "react-redux";
 
 import { fetchContacts } from "redux/contacts/contactsOperations";
@@ -31,10 +31,10 @@ import RegisterForm from "../pages/RegisterForm/RegisterForm";
 
 // import styles from "./App.module.css";
 
-// import {
-//   // selectIsLoggedIn,
-//   selectIsRefreching
-// } from "redux/auth/selectors";
+import {
+  // selectIsLoggedIn,
+  selectIsRefreching
+} from "redux/auth/selectors";
 
 // import UserMenu from "./UserMenu/UserMenu";
 
@@ -48,7 +48,7 @@ import { Layout } from "./Layout/Layout";
 
 import Contacts from "pages/Contacts/Contacts";
 
-// import { refreshUser } from "redux/auth/operations";
+import { refreshUser } from "redux/auth/operations";
 
 
 export default function App() {
@@ -56,18 +56,18 @@ export default function App() {
   // const isLoggedIn = useSelector(selectIsLoggedIn);
   // const isLoading = useSelector(selectIsLoading);
   // const error = useSelector(selectError);
-  // const isRefreshing = useSelector(selectIsRefreching);
+  const isRefreshing = useSelector(selectIsRefreching);
  
   useEffect(() => {
     dispatch(fetchContacts());
   },[dispatch])
 
-  //  useEffect(() => {
-  //   dispatch(refreshUser());
-  // },[dispatch])
+   useEffect(() => {
+    dispatch(refreshUser());
+  },[dispatch])
   
   return (
-    // !isRefreshing ? ("Fetching user data") : (
+    !isRefreshing ? ("Fetching user data") : (
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} ></Route>
@@ -94,5 +94,5 @@ export default function App() {
     //   {/* {isLoading && !error && <Loader/>} */}
     //   {(isLoading && !error && <Loader/>) || (error && <ErrorMessage/>) || <ContactList /> }       
     // </div>
-  // );
+  );
 }

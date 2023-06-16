@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import {
     loginer, logouter,
-    // refreshUser,
+    refreshUser,
     register
 } from "./operations";
 
@@ -40,14 +40,14 @@ const authSlice = createSlice({
                 state.isLoggedIn = false;
             })
             .addCase(logouter.rejected, (state, action) => state)
-            // .addCase(refreshUser.pending, (state, action) => state)
-            // .addCase(refreshUser.fulfilled, (state, action) => {
-            //     console.log("in refresh", action.payload )
-            //     state.user =  action.payload;
-            //     state.isLoggedIn = true;
-            //     state.isRefreshing = true;
-            // })
-            // .addCase(refreshUser.rejected, (state, action) => state)
+            .addCase(refreshUser.pending, (state, action) => state)
+            .addCase(refreshUser.fulfilled, (state, action) => {
+                console.log("in refresh", action.payload )
+                state.user =  action.payload;
+                state.isLoggedIn = true;
+                state.isRefreshing = true;
+            })
+            .addCase(refreshUser.rejected, (state, action) => state)
         
         
 })
