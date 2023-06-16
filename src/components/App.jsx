@@ -59,9 +59,9 @@ export default function App() {
     dispatch(fetchContacts());
   },[dispatch])
 
-   useEffect(() => {
-    dispatch(refreshUser());
-  },[dispatch])
+  //  useEffect(() => {
+  //   dispatch(refreshUser());
+  // },[dispatch])
   
   return (
     !isRefreshing ? ("Fetching user data") : (
