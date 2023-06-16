@@ -36,7 +36,9 @@ import {
   selectIsRefreching
 } from "redux/auth/selectors";
 
+import { RestrictedRoute } from "./RestrictedRoute";
 
+import { PrivateRoute } from "./PrivateRoute";
 
 import Home from "pages/Home/Home";
 
@@ -51,17 +53,10 @@ import { refreshUser } from "redux/auth/operations";
 
 
 export default function App() {
-  const dispatch = useDispatch();
-  // const isLoggedIn = useSelector(selectIsLoggedIn);
-  // const isLoading = useSelector(selectIsLoading);
-  // const error = useSelector(selectError);
+  const dispatch = useDispatch(); 
   const isRefreshing = useSelector(selectIsRefreching);
  
-  // useEffect(() => {
-  //   dispatch(fetchContacts());
-  // },[dispatch])
-
-   useEffect(() => {
+  useEffect(() => {
     dispatch(refreshUser());
   },[dispatch])
   
@@ -69,10 +64,20 @@ export default function App() {
     isRefreshing ? ("Fetching user data") : (
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route index element={<Home/>} ></Route>
-          <Route path='register' element={<RegisterForm />}></Route>
-          <Route path="login" element={<LoginForm />}></Route>
-          <Route path="contacts" element={<Contacts/>}></Route>
+          <Route index element={<Home />} ></Route>
+          <Route
+            path='/register'
+            element={<RestrictedRoute component={RegisterForm} redirectTo="/contacts" />}/>
+          {/* <Route path='register' element={<RegisterForm />}></Route> */}
+          <Route
+            path="/login"
+            element={<RestrictedRoute component={LoginForm} redirectTo="/contacts" />}/>
+          {/* <Route path="login" element={<LoginForm />}></Route> */}
+          <Route
+            path="/contacts"
+            element={<PrivateRoute component={Contacts} redirectTo="/"/>}
+          />
+          {/* <Route path="/contacts" element={<Contacts/>}></Route> */}
         </Route>        
       </Routes>
     )
