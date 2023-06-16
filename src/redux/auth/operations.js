@@ -59,11 +59,13 @@ export const logouter = createAsyncThunk('auth/logouter',
 export const refreshUser = createAsyncThunk(
     'auth/refresh',
     async (_, thunkApi) => {
+        const state = thunkApi.getState();
+        console.log("state in refreshUser.operation", state)
         const { token } = thunkApi.getState().auth; 
-        console.log("token", token);
-        if (!token) {
-            return;
-        }
+        console.log("token in refreshUser.operation", token);
+        if (token === null) {
+            return thunkApi.rejectWithValue('Unable to fetch user');
+        } 
         // console.log("refreshing", token);
         setAuthHeader(token);
         try {

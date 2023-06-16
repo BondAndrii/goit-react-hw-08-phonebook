@@ -67,7 +67,7 @@ export default function App() {
   },[dispatch])
   
   return (
-    !isRefreshing ? ("Fetching user data") : (
+    isRefreshing ? ("Fetching user data") : (
       <Routes>
         <Route path='/' element={<Layout />}>
           <Route index element={<Home />} ></Route>
