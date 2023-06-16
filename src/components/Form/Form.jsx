@@ -8,7 +8,7 @@ import { selectContacts } from "redux/contacts/selectors";
 
 import { nanoid } from "nanoid";
 
-import { addContact } from "redux/contacts/contactsOperations";
+import { addContact } from "redux/contacts/operations";
 
 import styles from "./Form.module.css";
 

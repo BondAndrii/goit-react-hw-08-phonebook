@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Filter from "components/Filter/Filter";
 
@@ -12,9 +12,18 @@ import { ErrorMessage } from "components/Error/error";
 
 import { selectError, selectIsLoading } from "redux/contacts/selectors";
 
+import { useEffect } from "react";
+
+import { fetchContacts } from "redux/contacts/operations";
+
 const Contacts = () => {
     const isLoading = useSelector(selectIsLoading);
     const error = useSelector(selectError);
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+    dispatch(fetchContacts());
+  },[dispatch])
     return (
         <>
             <Form />

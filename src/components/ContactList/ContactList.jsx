@@ -6,13 +6,17 @@ import { selectFilteredContacts } from "redux/contacts/selectors";
 
 import styles from "./ContactList.module.css";
 
-import { deleteContact } from "redux/contacts/contactsOperations";
+import { deleteContact} from "redux/contacts/operations";
 
 const ContactList = () => {
+    const dispatch = useDispatch();
+    
+
+    // useEffect(() => {
+    //     dispatch(fetchContacts());
+    // },[dispatch])
 
     const filteredContacts = useSelector(selectFilteredContacts);
-    
-    const dispatch = useDispatch();
     
     return (
         <ul className={styles.ContactList}>
