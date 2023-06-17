@@ -2,15 +2,16 @@ import React, { useEffect } from "react";
 
 import { createPortal } from "react-dom";
 
-// import { selectModalOpen } from "redux/contacts/selectors";
+import { selectEditForm, selectModalOpen } from "redux/contacts/selectors";
 
-import { toggleModal } from "redux/contacts/slice";
-
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import Form from "components/Form/Form";
 
 import "./Modal.css";
+import RedactForm from "components/RedactForm/RedactForm";
+
+import { closeModal } from "redux/contacts/slice";
 
 
 // import { useEffect } from "react";
@@ -18,7 +19,8 @@ import "./Modal.css";
 const modalRoot = document.querySelector('#modal-root');
 
 const Modal = () => {
-    // const isModalOpen = useSelector(selectModalOpen);
+    const isModalOpen = useSelector(selectModalOpen);
+    const editForm = useSelector(selectEditForm);
     const dispatch = useDispatch();
 
      useEffect(() => {
@@ -26,7 +28,7 @@ const Modal = () => {
         const handleKeyDown = event => {
         
             if (event.code === 'Escape') {                
-                dispatch(toggleModal());
+                dispatch(closeModal());
             }
     }
         window.addEventListener('keydown', handleKeyDown);
@@ -35,7 +37,7 @@ const Modal = () => {
 
     const handleBackdropClick = e => {
         if (e.currentTarget === e.target) {
-            dispatch(toggleModal());
+            dispatch(closeModal());
         }
     }
 
@@ -48,7 +50,7 @@ const Modal = () => {
                     className="Modal"
                 >
                 
-                <div><Form/></div>
+                <div>{(isModalOpen && editForm) ? <RedactForm/> : <Form/> }</div>
                 
             </div>
         </div>,

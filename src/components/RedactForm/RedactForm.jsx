@@ -6,11 +6,14 @@ import { selectContacts } from "redux/contacts/selectors";
 
 import { nanoid } from "nanoid";
 
-import { addContact } from "redux/contacts/operations";
+import {
+    // addContact,
+    editContact
+} from "redux/contacts/operations";
 
-import styles from "./Form.module.css";
+import styles from "./ReductForm.module.css";
 
-export default function Form() {
+export default function RedactForm() {
     
     const dispatch = useDispatch();
     const contacts = useSelector(selectContacts);
@@ -53,12 +56,9 @@ export default function Form() {
         }
         else { 
             
-            const data = {
-                // id: nanoid(),
-                name, number
-            };
-            // console.log("сабміт ін form", data);
-            dispatch(addContact(data));         
+            const data = {name, number};
+            console.log("сабміт ін reductform", data);
+            dispatch(editContact(data));         
         }  
         
        

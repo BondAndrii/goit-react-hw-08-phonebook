@@ -6,7 +6,9 @@ import { selectFilteredContacts } from "redux/contacts/selectors";
 
 import styles from "./ContactList.module.css";
 
-import { deleteContact} from "redux/contacts/operations";
+import { deleteContact } from "redux/contacts/operations";
+
+import {openEditForm} from "redux/contacts/slice";
 
 const ContactList = () => {
     const dispatch = useDispatch();
@@ -25,7 +27,7 @@ const ContactList = () => {
                 return (
                     <li className={styles.ContactList__element} key={contact.id} id={contact.id}>
                         <p className={styles.Text}>{contact.name}: {contact.number}</p>
-                        <button className={styles.Button__element} type="button">Редагуй!</button>
+                        <button className={styles.Button__element} type="button" onClick={() => dispatch(openEditForm())}>Редагуй!</button>
                         <button className={styles.Button__element} type="button" onClick={()=> dispatch(deleteContact(contact.id))}>Видали!</button>
                     </li>
                 )

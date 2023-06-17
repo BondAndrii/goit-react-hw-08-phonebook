@@ -8,7 +8,17 @@ export const selectIsLoading = state => state.contacts.isLoading;
 
 export const selectError = state => state.contacts.error;
 
-export const selectModalOpen = state => state.contacts.modalOpen
+export const selectModalOpen = state => state.contacts.modalOpen;
+
+export const selectEditForm = state => state.contacts.editForm;
+
+// export const selectForm = createSelector(
+//     [selectModalOpen, selectEditForm], (modalOpen, form) => {
+//         if ((modalOpen && form) === true) {
+//             return true;
+//         }
+//     }
+// )
 
 export const selectFilteredContacts = createSelector(
     [selectContacts, selectFilter], (item, filter) => {

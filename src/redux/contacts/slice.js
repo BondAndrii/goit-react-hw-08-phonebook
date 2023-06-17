@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-import { addContact, deleteContact, fetchContacts } from "./operations";
+import { addContact, deleteContact, editContact, fetchContacts } from "./operations";
 
 const pendingReducer = state => {
     state.isLoading = true;
@@ -29,20 +29,36 @@ const deleteContactFulfilledReducer = (state, action) => {
     state.items.splice(index, 1);
 };
 
+const editContactFulfiledReducer = (state, action) => {
+    state.isLoading = false;
+    state.error = null;
+    state.modalOpen = !state.modalOpen;
+    console.log("editContactSlice", action.payload);
+}
+
 const contactsSlice = createSlice({
     name: "contacts",
     initialState: {
         items: [],
         isLoading: false,
         modalOpen: false,
+        editForm: false,
         error: null,
     },
     reducers: {
-        toggleModal(state, action) {
+        openForm(state, action) {
             // return state.modalOpen = !state.modalOpen; не катить, бо тут одночасно і ретурн і мутація, 
             // а можна або те, або інше
-            state.modalOpen = !state.modalOpen;
-        }
+            state.modalOpen = true;
+        },
+        openEditForm(state, action) {
+            state.modalOpen = true;
+            state.editForm = true;
+        },
+        closeModal(state, action) {
+            state.modalOpen = false;
+            state.editForm = false;
+        },
     },
     extraReducers: builder =>
         builder.addCase(fetchContacts.pending, pendingReducer)
@@ -54,12 +70,15 @@ const contactsSlice = createSlice({
             .addCase(deleteContact.pending, pendingReducer)
             .addCase(deleteContact.fulfilled, deleteContactFulfilledReducer)
             .addCase(deleteContact.rejected, rejectedReducer)
+            .addCase(editContact.pending, pendingReducer)
+            .addCase(editContact.fulfilled, editContactFulfiledReducer)
+            .addCase(editContact.rejected, rejectedReducer)
 });
 
 
 
 export const contactsReducer = contactsSlice.reducer;
 
-export const { toggleModal } = contactsSlice.actions;
+export const { openForm, openEditForm, closeModal } = contactsSlice.actions;
 
 
