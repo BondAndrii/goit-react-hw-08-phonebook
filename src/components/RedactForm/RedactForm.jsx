@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -25,9 +25,9 @@ export default function RedactForm() {
     const nameId = nanoid();
     const numberId = nanoid();
 
-    useEffect(() => {
-         console.log("currentUser in useEffect", currentUser.id)
-    }, [currentUser])
+    // useEffect(() => {
+    //      console.log("currentUser in useEffect", currentUser.id)
+    // }, [currentUser])
 
     const handleChange = e => {
 
@@ -66,7 +66,7 @@ export default function RedactForm() {
         else { 
             
             // const data = {name, number};
-            console.log("сабміт ін reductform", data);
+            // console.log("сабміт ін reductform", data);
             dispatch(editContact(data));         
         }     
     //    reset();         
