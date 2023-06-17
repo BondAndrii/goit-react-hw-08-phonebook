@@ -23,10 +23,11 @@ const ContactList = () => {
             {filteredContacts.map((contact) => {
                 
                 return (
-                     <li className={styles.ContactList__element} key={contact.id} id={contact.id}>
-                <p className={styles.Text}>{contact.name}: {contact.number}</p>
-                <button className={styles.Button__element} type="button" onClick={()=> dispatch(deleteContact(contact.id))}>Видали!</button>
-            </li>
+                    <li className={styles.ContactList__element} key={contact.id} id={contact.id}>
+                        <p className={styles.Text}>{contact.name}: {contact.number}</p>
+                        <button className={styles.Button__element} type="button">Редагуй!</button>
+                        <button className={styles.Button__element} type="button" onClick={()=> dispatch(deleteContact(contact.id))}>Видали!</button>
+                    </li>
                 )
             }
             )}
