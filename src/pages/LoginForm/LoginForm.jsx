@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 
 import { loginer } from "redux/auth/operations";
 
-
+import styled from "./LoginForm.module.css"
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -39,19 +39,22 @@ const LoginForm = () => {
         reset(); 
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Emaill:
+        <form className={styled.LoginForm} onSubmit={handleSubmit}>
+            <label className={styled.Label}>
+                <p className={styled.Text}>Email:</p>
                 <input type="email"
+                    className={styled.Input}
                     name="email"
                     value={email}
                     placeholder="enter your email"
                     onChange={handleChange}
                 />
             </label>
-            <label>
-                Password:
+            <label className={styled.Label}>
+                <p className={styled.Text}>Password:</p>
+                
                 <input type="password"
+                    className={styled.Input}
                     name="password"
                     value={password}
                     placeholder="remember your password"
@@ -60,6 +63,7 @@ const LoginForm = () => {
             </label>
             <button
                 type="submit"
+                className={styled.Button}
                 
             >Log in</button>
         </form>

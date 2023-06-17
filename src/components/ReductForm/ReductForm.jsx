@@ -73,7 +73,7 @@ export default function RedactForm() {
     }
 return (            
             <form className={styles.Form} onSubmit={handleSubmit}>
-                <label htmlFor={nameId}>
+                <label className={styles.Label} htmlFor={nameId}>
                     <p className={styles.Text}>Iм'я:</p>
                     <input
                         type="text"
@@ -89,7 +89,7 @@ return (
                     />
                 </label>
                
-                <label  htmlFor={numberId}>
+                <label className={styles.Label} htmlFor={numberId}>
                     <p className={styles.Text}>Номер:</p>
                     <input
                         type="tel"

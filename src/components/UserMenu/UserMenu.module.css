@@ -1,0 +1,19 @@
+.UserMenu{
+    display: flex;
+    align-items: center;
+}
+.Text {
+    margin-right: 10px;
+    color: green;
+    font-weight: 500;
+    font-size: 20px;
+    text-decoration: none;
+}
+.ButtonLog{
+    height: 30px;
+    width: 100px;
+    color: yellow;
+    background-color: red;
+    border: 2px solid yellow;
+    border-radius: 5px;
+}

@@ -8,7 +8,7 @@ import { nanoid } from "nanoid";
 
 import { addContact } from "redux/contacts/operations";
 
-import styles from "./Form.module.css";
+import styled from "./Form.module.css";
 
 export default function Form() {
     
@@ -66,13 +66,13 @@ export default function Form() {
         reset();         
     }
 return (            
-            <form className={styles.Form} onSubmit={handleSubmit}>
-                <label htmlFor={nameId}>
-                    <p className={styles.Text}>Iм'я:</p>
+            <form className={styled.Form} onSubmit={handleSubmit}>
+                <label className={styled.Label} htmlFor={nameId}>
+                    <p className={styled.Text}>Iм'я:</p>
                     <input
                         type="text"
                         name="names"
-                        className={styles.Input}
+                        className={styled.Input}
                         id={nameId}
                         value={name}
                         onChange={handleChange}
@@ -83,12 +83,12 @@ return (
                     />
                 </label>
                
-                <label  htmlFor={numberId}>
-                    <p className={styles.Text}>Номер:</p>
+                <label className={styled.Label} htmlFor={numberId}>
+                    <p className={styled.Text}>Номер:</p>
                     <input
                         type="tel"
                         name="number"
-                        className={styles.Input}
+                        className={styled.Input}
                         value={number}
                         id={numberId}
                         onChange={handleChange}
@@ -99,7 +99,7 @@ return (
                     />
                 </label>
                 
-                <button className={styles.Button} type="submit">Запиши!</button>
+                <button className={styled.Button} type="submit">Запиши!</button>
             </form>               
         );
     

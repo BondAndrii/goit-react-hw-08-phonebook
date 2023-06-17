@@ -8,8 +8,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Form from "components/Form/Form";
 
-import "./Modal.css";
-import RedactForm from "components/RedactForm/RedactForm";
+import styled from "./Modal.module.css"
+import ReductForm from "components/ReductForm/ReductForm";
 
 import { closeModal } from "redux/contacts/slice";
 
@@ -40,9 +40,9 @@ const Modal = () => {
     }
 
     return createPortal(
-            <div className="Overlay" onClick={handleBackdropClick}>
-                <div className="Modal">                
-                    <div>{(isModalOpen && editForm) ? <RedactForm/> : <Form/> }</div>                
+            <div className={styled.Overlay} onClick={handleBackdropClick}>
+                <div className={styled.Modal}>                
+                    <div>{(isModalOpen && editForm) ? <ReductForm/> : <Form/> }</div>                
                 </div>
             </div>,
         modalRoot

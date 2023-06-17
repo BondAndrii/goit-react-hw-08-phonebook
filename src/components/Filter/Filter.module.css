@@ -1,9 +1,11 @@
 .LabelFilter {
     display: flex;
-    margin-left: 50px;
-    margin-bottom: 100px;
-    width: 500px;
+    /* margin-left: 50px; */
+    /* margin-bottom: 40px; */
+    width: 560px;
+    height: 60px;
     align-items: center;
+    /* justify-content: space-between; */
 
 
 }
@@ -13,11 +15,11 @@
     height: 30px;
 }
 .ButtonFilter {
-        margin-left: 60px;
+        /* margin-left: 60px; */
         width: 100px;
         height: 50px;
         margin-left: auto;
-        margin-right: auto;
+        /* margin-right: auto; */
         border: 5px solid yellowgreen;
         border-radius: 50%;
         background-color: green;

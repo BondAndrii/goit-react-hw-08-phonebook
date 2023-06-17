@@ -1,0 +1,24 @@
+.Header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+.LeftHalfHeader{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    height: 60px;
+}
+.RightHalfHeader{
+    display: flex;
+    align-items: center;
+    height: 60px;
+    margin-right: 10px;
+}
+.Tittle {
+    /* text-align: center; */
+   
+    /* margin-right: 10px; */
+    color: green;
+}

@@ -27,11 +27,17 @@ const ContactList = () => {
                 return (
                     <li className={styles.ContactList__element} key={id} id={id}>
                         <p className={styles.Text}>{name}: {number}</p>
-                        <button
-                            className={styles.Button__element}
-                            type="button"
-                            onClick={() => dispatch(openEditForm(contact))}>Редагуй!</button>
-                        <button className={styles.Button__element} type="button" onClick={()=> dispatch(deleteContact(id))}>Видали!</button>
+                        <div>
+                            <button
+                                className={styles.Button__element}
+                                type="button"
+                                onClick={() => dispatch(openEditForm(contact))}>Редагуй!</button>
+                            <button
+                                className={styles.Button__element}
+                                type="button"
+                                onClick={() => dispatch(deleteContact(id))}>Видали!</button>
+                        </div>
+
                     </li>
                 )
             }

@@ -22,31 +22,33 @@ import { fetchContacts } from "redux/contacts/operations";
 
 import { openForm } from "redux/contacts/slice";
 
+import styled from "./Contacts.module.css"
+
 
 const Contacts = () => {
     const isModalOpen = useSelector(selectModalOpen);
-    // console.log("isModalOpen",isModalOpen);
     const isLoading = useSelector(selectIsLoading);
     const error = useSelector(selectError);
-    // const filteredContacts = useSelector(selectFilteredContacts);
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
     useEffect(() => {
     dispatch(fetchContacts());
     }, [dispatch])
-    // useEffect(() => {
-    // dispatch(fetchContacts());
-    // }, [filteredContacts])
     return (
-        <>
-            <button type="button" onClick={()=> dispatch(openForm())}>Додати контакт</button>
-            {isModalOpen && <Modal />}
-            {/* <RedactForm/> */}
-            {/* <Form /> */}
-            <h2 >Контакти</h2>
+        <div className={styled.Contacts} >            
             <Filter />
-            {(isLoading && !error && <Loader/>) || (error && <ErrorMessage/>) || <ContactList /> }     
-        </>
+            <div className={styled.ContactsHeder}>
+                <h2 className={styled.SecondTittle} >Контакти</h2>
+                <button
+                    className={styled.ButtonAddContact}
+                    type="button" onClick={() => dispatch(openForm())}
+                >
+                    Додай!</button>
+            </div>
+            
+            {(isLoading && !error && <Loader />) || (error && <ErrorMessage />) || <ContactList />} 
+            {isModalOpen && <Modal />}
+        </div>
     )
 }
 

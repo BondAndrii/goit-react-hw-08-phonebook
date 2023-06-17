@@ -8,6 +8,8 @@ import UserMenu from "components/UserMenu/UserMenu";
 
 import Navigation from "components/Navigation/Navigation";
 
+import styled from "./AppBar.module.css"
+
 
 const AppBar = () => {
 
@@ -15,10 +17,15 @@ const AppBar = () => {
     // console.log("in App", isLoggedIn)
 
     return (
-        <header>
-            <h2>Phonebook</h2>
-            <Navigation/>
-            {isLoggedIn ? <UserMenu/> : <AuthNav/>}
+        <header className={styled.Header}>
+            <div className={styled.LeftHalfHeader}>
+                <h1 className={styled.Tittle}>Phonebook</h1>
+                <Navigation/>
+            </div>
+            <div className={styled.RightHalfHeader}>
+                {isLoggedIn ? <UserMenu/> : <AuthNav/>}
+            </div>
+            
         </header>
     )
 }
