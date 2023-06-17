@@ -4,11 +4,13 @@ import AppBar from 'components/AppBar/AppBar';
 
 
 
-export const Layout = () => {
+const Layout = () => {
     return (
-        <div>            
-            <AppBar/>
-            <Outlet/>
+        <div>
+            <AppBar />
+            <Outlet />
         </div>
     )
-}
+};
+
+export default Layout;
