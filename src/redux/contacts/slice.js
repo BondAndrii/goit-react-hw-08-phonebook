@@ -34,14 +34,13 @@ const deleteContactFulfilledReducer = (state, action) => {
 const editContactFulfiledReducer = (state, action) => {
     state.isLoading = false;
     state.error = null;
-    state.modalOpen = !state.modalOpen;
+    state.modalOpen = false;
     state.items = state.items.map(item=> {
           if (item.id === action.payload.id) {
             return action.payload;
           }
         return item;
          });
-    // console.log("editContactSlice", action.payload);
 }
 
 const contactsSlice = createSlice({
