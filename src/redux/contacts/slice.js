@@ -20,6 +20,8 @@ const addContactFulfilledReducer = (state, action) => {
     state.isLoading = false;
     state.error = null;
     state.items.push(action.payload);
+    state.modalOpen = false;
+    state.editForm = false;
 };
 const deleteContactFulfilledReducer = (state, action) => {
     state.isLoading = false;
