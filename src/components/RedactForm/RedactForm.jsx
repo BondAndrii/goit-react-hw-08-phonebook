@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectContacts, selectEditUser } from "redux/contacts/selectors";
+import { selectEditUser } from "redux/contacts/selectors";
 
 import { nanoid } from "nanoid";
 
@@ -25,10 +25,10 @@ export default function RedactForm() {
     const nameId = nanoid();
     const numberId = nanoid();
 
-    function reset() {
-        setName('');
-        setNumber('');        
-    };
+    // function reset() {
+    //     setName('');
+    //     setNumber('');        
+    // };
 
     useEffect(() => {
          console.log("currentUser in useEffect", currentUser.id)

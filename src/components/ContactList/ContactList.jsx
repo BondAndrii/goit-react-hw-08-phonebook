@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 
@@ -6,7 +6,7 @@ import { selectFilteredContacts } from "redux/contacts/selectors";
 
 import styles from "./ContactList.module.css";
 
-import { deleteContact, fetchContacts } from "redux/contacts/operations";
+import { deleteContact } from "redux/contacts/operations";
 
 import {openEditForm} from "redux/contacts/slice";
 

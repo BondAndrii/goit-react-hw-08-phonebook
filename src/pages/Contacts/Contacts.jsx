@@ -14,7 +14,7 @@ import Modal from "components/Modal/Modal";
 
 import { ErrorMessage } from "components/Error/error";
 
-import { selectError, selectFilteredContacts, selectIsLoading, selectModalOpen } from "redux/contacts/selectors";
+import { selectError, selectIsLoading, selectModalOpen } from "redux/contacts/selectors";
 
 import { useEffect } from "react";
 
@@ -28,7 +28,7 @@ const Contacts = () => {
     // console.log("isModalOpen",isModalOpen);
     const isLoading = useSelector(selectIsLoading);
     const error = useSelector(selectError);
-    const filteredContacts = useSelector(selectFilteredContacts);
+    // const filteredContacts = useSelector(selectFilteredContacts);
     const dispatch = useDispatch()
 
     useEffect(() => {
