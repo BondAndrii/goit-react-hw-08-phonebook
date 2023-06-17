@@ -35,7 +35,13 @@ const editContactFulfiledReducer = (state, action) => {
     state.isLoading = false;
     state.error = null;
     state.modalOpen = !state.modalOpen;
-    console.log("editContactSlice", action.payload);
+    state.items = state.items.map(item=> {
+          if (item.id === action.payload.id) {
+            return action.payload;
+          }
+        return item;
+         });
+    // console.log("editContactSlice", action.payload);
 }
 
 const contactsSlice = createSlice({
@@ -45,6 +51,7 @@ const contactsSlice = createSlice({
         isLoading: false,
         modalOpen: false,
         editForm: false,
+        editUser: {},
         error: null,
     },
     reducers: {
@@ -54,12 +61,14 @@ const contactsSlice = createSlice({
             state.modalOpen = true;
         },
         openEditForm(state, action) {
+            state.editUser = action.payload
             state.modalOpen = true;
             state.editForm = true;
         },
         closeModal(state, action) {
             state.modalOpen = false;
             state.editForm = false;
+            state.editUser = { };
         },
     },
     extraReducers: builder =>

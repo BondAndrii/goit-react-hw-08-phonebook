@@ -12,6 +12,8 @@ export const selectModalOpen = state => state.contacts.modalOpen;
 
 export const selectEditForm = state => state.contacts.editForm;
 
+export const selectEditUser = state => state.contacts.editUser;
+
 // export const selectForm = createSelector(
 //     [selectModalOpen, selectEditForm], (modalOpen, form) => {
 //         if ((modalOpen && form) === true) {
