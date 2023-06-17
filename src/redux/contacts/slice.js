@@ -34,7 +34,15 @@ const contactsSlice = createSlice({
     initialState: {
         items: [],
         isLoading: false,
+        modalOpen: false,
         error: null,
+    },
+    reducers: {
+        toggleModal(state, action) {
+            // return state.modalOpen = !state.modalOpen; не катить, бо тут одночасно і ретурн і мутація, 
+            // а можна або те, або інше
+            state.modalOpen = !state.modalOpen;
+        }
     },
     extraReducers: builder =>
         builder.addCase(fetchContacts.pending, pendingReducer)
@@ -52,5 +60,6 @@ const contactsSlice = createSlice({
 
 export const contactsReducer = contactsSlice.reducer;
 
+export const { toggleModal } = contactsSlice.actions;
 
 
