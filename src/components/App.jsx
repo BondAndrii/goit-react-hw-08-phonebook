@@ -37,6 +37,7 @@ export default function App() {
     isRefreshing ? ("Fetching user data") : (
       <Routes>
         <Route path='/' element={<Layout />}>
+          {/* <Route index element={<LoginForm />} ></Route> */}
           <Route index element={<Home />} ></Route>
           <Route
             path='/register'
