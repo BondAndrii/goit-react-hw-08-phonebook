@@ -8,25 +8,35 @@ import UserMenu from "components/UserMenu/UserMenu";
 
 import Navigation from "components/Navigation/Navigation";
 
-import styled from "./AppBar.module.css"
+import { Header, LeftHalfHeader, RightHalfHeader, Tittle } from "./AppBar.styled";
+
+// import styled from "./AppBar.module.css"
 
 
 const AppBar = () => {
 
     const isLoggedIn = useSelector(selectIsLoggedIn);
-    // console.log("in App", isLoggedIn)
 
     return (
-        <header className={styled.Header}>
-            <div className={styled.LeftHalfHeader}>
-                <h1 className={styled.Tittle}>Phonebook</h1>
-                <Navigation/>
-            </div>
-            <div className={styled.RightHalfHeader}>
-                {isLoggedIn ? <UserMenu/> : <AuthNav/>}
-            </div>
+         < Header>
+            <LeftHalfHeader>           
+                <Tittle >Phonebook</Tittle>
+                <Navigation />
+            </LeftHalfHeader>          
+            < RightHalfHeader>
+                {isLoggedIn ? <UserMenu/> : <AuthNav/>}               
+            </RightHalfHeader>            
+        </ Header>
+        // <header className={styled.Header}>
+        //     <div className={styled.LeftHalfHeader}>
+        //         <h1 className={styled.Tittle}>Phonebook</h1>
+        //         <Navigation/>
+        //     </div>
+        //     <div className={styled.RightHalfHeader}>
+        //         {isLoggedIn ? <UserMenu/> : <AuthNav/>}
+        //     </div>
             
-        </header>
+        // </header>
     )
 }
 
