@@ -12,7 +12,7 @@ import Loader from "components/Loader/Loader";
 
 import Modal from "components/Modal/Modal";
 
-import { ErrorMessage } from "components/Error/error";
+import { ErrorMessage } from "components/Error/Error";
 
 import { selectError, selectIsLoading, selectModalOpen } from "redux/contacts/selectors";
 
@@ -22,7 +22,8 @@ import { fetchContacts } from "redux/contacts/operations";
 
 import { openForm } from "redux/contacts/slice";
 
-import styled from "./Contacts.module.css"
+// import styled from "./Contacts.module.css"
+import { ButtonAddContact, ContactsHeder, ContactsStyled, SecondTittle } from "./Contacts.styled";
 
 
 const Contacts = () => {
@@ -35,20 +36,32 @@ const Contacts = () => {
     dispatch(fetchContacts());
     }, [dispatch])
     return (
-        <div className={styled.Contacts} >            
+        <ContactsStyled>
             <Filter />
-            <div className={styled.ContactsHeder}>
-                <h2 className={styled.SecondTittle} >Контакти</h2>
-                <button
-                    className={styled.ButtonAddContact}
-                    type="button" onClick={() => dispatch(openForm())}
-                >
-                    Додай!</button>
-            </div>
-            
+            <ContactsHeder>
+                <SecondTittle>Контакти</SecondTittle>
+                <ButtonAddContact
+                    type="button"
+                    onClick={() => dispatch(openForm())}
+                >Додай!</ButtonAddContact>
+            </ContactsHeder>
             {(isLoading && !error && <Loader />) || (error && <ErrorMessage />) || <ContactList />} 
             {isModalOpen && <Modal />}
-        </div>
+        </ContactsStyled>
+        // <div className={styled.Contacts} >            
+        //     <Filter />
+        //     <div className={styled.ContactsHeder}>
+        //         <h2 className={styled.SecondTittle} >Контакти</h2>
+        //         <button
+        //             className={styled.ButtonAddContact}
+        //             type="button" onClick={() => dispatch(openForm())}
+        //         >
+        //             Додай!</button>
+        //     </div>
+            
+        //     {(isLoading && !error && <Loader />) || (error && <ErrorMessage />) || <ContactList />} 
+        //     {isModalOpen && <Modal />}
+        // </div>
     )
 }
 

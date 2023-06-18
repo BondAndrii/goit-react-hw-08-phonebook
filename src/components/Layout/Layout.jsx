@@ -2,16 +2,21 @@ import { Outlet } from 'react-router-dom';
 
 import AppBar from 'components/AppBar/AppBar';
 
-import styled from "./Layout.module.css"
+// import styled from "./Layout.module.css"
+import { Container } from './Layout.styled';
 
 
 
 const Layout = () => {
     return (
-        <div className={styled.Container}>
+        <Container>
             <AppBar />
             <Outlet />
-        </div>
+        </Container>
+        // <div className={styled.Container}>
+        //     <AppBar />
+        //     <Outlet />
+        // </div>
     )
 };
 

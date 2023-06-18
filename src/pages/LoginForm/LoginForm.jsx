@@ -3,8 +3,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { loginer } from "redux/auth/operations";
+import { ButtonStyled, Input, Label, LoginFormStyled, TextStyled } from "./LoginForm.styled";
+// import { Button } from "@mui/material";
 
-import styled from "./LoginForm.module.css"
+// import styled from "./LoginForm.module.css"
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -39,34 +41,56 @@ const LoginForm = () => {
         reset(); 
     }
     return (
-        <form className={styled.LoginForm} onSubmit={handleSubmit}>
-            <label className={styled.Label}>
-                <p className={styled.Text}>Email:</p>
-                <input type="email"
-                    className={styled.Input}
+        <LoginFormStyled onSubmit={handleSubmit}>
+            <Label>
+                <TextStyled>Email:</TextStyled>
+                <Input
+                    type="email"
                     name="email"
                     value={email}
                     placeholder="enter your email"
                     onChange={handleChange}
                 />
-            </label>
-            <label className={styled.Label}>
-                <p className={styled.Text}>Password:</p>
-                
-                <input type="password"
-                    className={styled.Input}
+            </Label>
+            <Label>
+                <TextStyled>Password:</TextStyled>
+                <Input type="password"
                     name="password"
                     value={password}
                     placeholder="remember your password"
                     onChange={handleChange}
                 />
-            </label>
-            <button
-                type="submit"
-                className={styled.Button}
+            </Label>
+            <ButtonStyled type="submit">Log in</ButtonStyled>
+        </LoginFormStyled>
+        // <form className={styled.LoginForm} onSubmit={handleSubmit}>
+        //     <label className={styled.Label}>
+        //         <p className={styled.Text}>Email:</p>
+        //         <input type="email"
+        //             className={styled.Input}
+        //             name="email"
+        //             value={email}
+        //             placeholder="enter your email"
+        //             onChange={handleChange}
+        //         />
+        //     </label>
+        //     <label className={styled.Label}>
+        //         <p className={styled.Text}>Password:</p>
                 
-            >Log in</button>
-        </form>
+        //         <input type="password"
+        //             className={styled.Input}
+        //             name="password"
+        //             value={password}
+        //             placeholder="remember your password"
+        //             onChange={handleChange}
+        //         />
+        //     </label>
+        //     <button
+        //         type="submit"
+        //         className={styled.Button}
+                
+        //     >Log in</button>
+        // </form>
     )
 }
 

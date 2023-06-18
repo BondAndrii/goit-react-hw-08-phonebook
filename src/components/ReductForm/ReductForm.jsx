@@ -11,7 +11,8 @@ import {
     editContact
 } from "redux/contacts/operations";
 
-import styles from "./ReductForm.module.css";
+// import styles from "./ReductForm.module.css";
+import { ButtonStyled, Input, Label, ReductFormStyled, TextStyled } from "./ReductForm.styled";
 
 export default function RedactForm() {
     
@@ -71,14 +72,13 @@ export default function RedactForm() {
         }     
     //    reset();         
     }
-return (            
-            <form className={styles.Form} onSubmit={handleSubmit}>
-                <label className={styles.Label} htmlFor={nameId}>
-                    <p className={styles.Text}>Iм'я:</p>
-                    <input
+    return (    
+        <ReductFormStyled onSubmit={handleSubmit}>
+            <Label htmlFor={nameId}>
+                <TextStyled>Iм'я:</TextStyled>
+                <Input
                         type="text"
                         name="names"
-                        className={styles.Input}
                         id={nameId}
                         value={name}
                         onChange={handleChange}
@@ -86,15 +86,13 @@ return (
                         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                         required
-                    />
-                </label>
-               
-                <label className={styles.Label} htmlFor={numberId}>
-                    <p className={styles.Text}>Номер:</p>
-                    <input
+                />
+            </Label>
+            <Label htmlFor={numberId}>
+                <TextStyled>Номер:</TextStyled>
+                <Input
                         type="tel"
                         name="number"
-                        className={styles.Input}
                         value={number}
                         id={numberId}
                         onChange={handleChange}
@@ -102,11 +100,46 @@ return (
                         pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                         required
-                    />
-                </label>
                 
-                <button className={styles.Button} type="submit">Запиши!</button>
-            </form>               
+                />
+            </Label>
+            <ButtonStyled type="submit">Запиши!</ButtonStyled>
+        </ReductFormStyled>
+            // <form className={styles.Form} onSubmit={handleSubmit}>
+            //     <label className={styles.Label} htmlFor={nameId}>
+            //         <p className={styles.Text}>Iм'я:</p>
+            //         <input
+            //             type="text"
+            //             name="names"
+            //             className={styles.Input}
+            //             id={nameId}
+            //             value={name}
+            //             onChange={handleChange}
+            //             placeholder={`${currentUser.name} ??`}
+            //             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            //             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            //             required
+            //         />
+            //     </label>
+               
+            //     <label className={styles.Label} htmlFor={numberId}>
+            //         <p className={styles.Text}>Номер:</p>
+            //         <input
+            //             type="tel"
+            //             name="number"
+            //             className={styles.Input}
+            //             value={number}
+            //             id={numberId}
+            //             onChange={handleChange}
+            //             placeholder={`${currentUser.number} ??`}
+            //             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            //             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            //             required
+            //         />
+            //     </label>
+                
+            //     <button className={styles.Button} type="submit">Запиши!</button>
+            // </form>               
         );
     
 }

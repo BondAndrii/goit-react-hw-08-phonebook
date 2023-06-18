@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { selectFilteredContacts } from "redux/contacts/selectors";
 
-import styles from "./ContactList.module.css";
+// import styles from "./ContactList.module.css";
 
 import { deleteContact } from "redux/contacts/operations";
 
 import {openEditForm} from "redux/contacts/slice";
+import { ButtonElement, ContactListElement, ContactListStyled, TextStyled } from "./ContactList.styled";
 
 const ContactList = () => {
     const dispatch = useDispatch();
@@ -21,28 +22,53 @@ const ContactList = () => {
     
     
     return (
-        <ul className={styles.ContactList}>
+        <ContactListStyled>
             {filteredContacts.map((contact) => {
                 const { id, name, number } = contact;
                 return (
-                    <li className={styles.ContactList__element} key={id} id={id}>
-                        <p className={styles.Text}>{name}: {number}</p>
+                    <ContactListElement key={id} id={id}>
+                        <TextStyled>{name}: {number}</TextStyled>
                         <div>
-                            <button
-                                className={styles.Button__element}
+                            <ButtonElement
                                 type="button"
-                                onClick={() => dispatch(openEditForm(contact))}>Редагуй!</button>
-                            <button
-                                className={styles.Button__element}
+                                onClick={() => dispatch(openEditForm(contact))}
+                            >
+                               Редагуй! 
+                            </ButtonElement>
+                            <ButtonElement
                                 type="button"
-                                onClick={() => dispatch(deleteContact(id))}>Видали!</button>
+                                onClick={() => dispatch(deleteContact(id))}
+                            >
+                                Видали!
+                            </ButtonElement>
                         </div>
-
-                    </li>
+                    </ContactListElement>
                 )
             }
             )}
-        </ul>
+        </ContactListStyled>
+        // <ul className={styles.ContactList}>
+        //     {filteredContacts.map((contact) => {
+        //         const { id, name, number } = contact;
+        //         return (
+        //             <li className={styles.ContactList__element} key={id} id={id}>
+        //                 <p className={styles.Text}>{name}: {number}</p>
+        //                 <div>
+        //                     <button
+        //                         className={styles.Button__element}
+        //                         type="button"
+        //                         onClick={() => dispatch(openEditForm(contact))}>Редагуй!</button>
+        //                     <button
+        //                         className={styles.Button__element}
+        //                         type="button"
+        //                         onClick={() => dispatch(deleteContact(id))}>Видали!</button>
+        //                 </div>
+
+        //             </li>
+        //         )
+        //     }
+        //     )}
+        // </ul>
     );
 }
 
