@@ -12,7 +12,7 @@ import Loader from "components/Loader/Loader";
 
 import Modal from "components/Modal/Modal";
 
-import { ErrorMessage } from "components/Error/error";
+
 
 import { selectError, selectIsLoading, selectModalOpen } from "redux/contacts/selectors";
 
@@ -24,6 +24,8 @@ import { openForm } from "redux/contacts/slice";
 
 // import styled from "./Contacts.module.css"
 import { ButtonAddContact, ContactsHeder, ContactsStyled, SecondTittle } from "./Contacts.styled";
+
+import { ErrorMessage } from "components/Error/error";
 
 
 const Contacts = () => {
