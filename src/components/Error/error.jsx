@@ -9,7 +9,7 @@ import { ErrorStyled } from "./error.styled";
 
 
 // import styles from "./error.module.css"
-// import { ErrorStyled } from "./Error.styled";
+
 
 export const ErrorMessage = () => {
 
