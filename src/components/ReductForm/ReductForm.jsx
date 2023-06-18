@@ -12,7 +12,11 @@ import {
 } from "redux/contacts/operations";
 
 // import styles from "./ReductForm.module.css";
-import { ButtonStyled, Input, Label, ReductFormStyled, TextStyled } from "./ReductForm.styled";
+import {
+    // ButtonStyled,
+    Input, Label, ReductFormStyled, TextStyled
+} from "./ReductForm.styled";
+import { Button } from "@mui/material";
 
 export default function RedactForm() {
     
@@ -103,7 +107,10 @@ export default function RedactForm() {
                 
                 />
             </Label>
-            <ButtonStyled type="submit">Запиши!</ButtonStyled>
+            <Button
+                style={{ width: "100px", marginLeft: "auto", marginRight: "auto", marginBottom: "20px" }}
+                variant="contained" type="submit">Запиши!</Button>
+            {/* <ButtonStyled type="submit">Запиши!</ButtonStyled> */}
         </ReductFormStyled>
             // <form className={styles.Form} onSubmit={handleSubmit}>
             //     <label className={styles.Label} htmlFor={nameId}>

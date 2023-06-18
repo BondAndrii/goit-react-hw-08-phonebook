@@ -1,17 +1,31 @@
 // import { NavLink } from 'react-router-dom';
 
 // import styled from "./AuthNav.module.css"
-import { ButtonLog, ButtonReg, NavLinkStyled } from './AuthNav.styled';
+import { Box } from '@mui/material';
+import {
+    // ButtonLog, ButtonReg,
+    NavLinkStyled
+} from './AuthNav.styled';
+
+import Button from '@mui/material/Button';
 
 const AuthNav = () => {
     return (
-        <div>
-            <ButtonReg type='button'>
+        <Box sx={{ display: 'flex' }}>
+            <Box mr={3}>
+                <Button variant="contained">
+                    <NavLinkStyled to='/register'>Register</NavLinkStyled>
+                </Button>
+            </Box>
+            <Button color='secondary' variant="contained" >
+                <NavLinkStyled to='/login'>LogIn</NavLinkStyled>
+            </Button>
+            {/* <ButtonReg type='button'>
                 <NavLinkStyled to='/register'>Register</NavLinkStyled>
             </ButtonReg>
             <ButtonLog type='button'>
                 <NavLinkStyled to='/login'>LogIn</NavLinkStyled>
-            </ButtonLog>
+            </ButtonLog> */}
             {/* <button className={styled.ButtonReg} type='button'>
                 <NavLink  className={styled.Text} to='/register'>
                     Register
@@ -23,7 +37,7 @@ const AuthNav = () => {
                 </NavLink>
             </button> */}
 
-        </div>
+        </Box>
     )
 }
 

@@ -9,7 +9,11 @@ import { selectFilteredContacts } from "redux/contacts/selectors";
 import { deleteContact } from "redux/contacts/operations";
 
 import {openEditForm} from "redux/contacts/slice";
-import { ButtonElement, ContactListElement, ContactListStyled, TextStyled } from "./ContactList.styled";
+import {
+    // ButtonElement,
+    ContactListElement, ContactListStyled, TextStyled
+} from "./ContactList.styled";
+import { Button } from "@mui/material";
 
 const ContactList = () => {
     const dispatch = useDispatch();
@@ -29,7 +33,23 @@ const ContactList = () => {
                     <ContactListElement key={id} id={id}>
                         <TextStyled>{name}: {number}</TextStyled>
                         <div>
-                            <ButtonElement
+                            <Button
+                                mr={3}
+                                variant="contained"
+                                type="button"
+                                onClick={() => dispatch(openEditForm(contact))}
+                            >
+                                 Редагуй!
+                            </Button>
+                            <Button
+                                color='secondary'
+                                variant="contained"
+                                type="button"
+                                onClick={() => dispatch(deleteContact(id))}
+                            >
+                                Видали!
+                            </Button>
+                            {/* <ButtonElement
                                 type="button"
                                 onClick={() => dispatch(openEditForm(contact))}
                             >
@@ -40,7 +60,7 @@ const ContactList = () => {
                                 onClick={() => dispatch(deleteContact(id))}
                             >
                                 Видали!
-                            </ButtonElement>
+                            </ButtonElement> */}
                         </div>
                     </ContactListElement>
                 )

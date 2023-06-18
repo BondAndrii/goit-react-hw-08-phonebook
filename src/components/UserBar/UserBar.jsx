@@ -8,7 +8,12 @@ import UserMenu from "components/UserMenu/UserMenu";
 
 import Navigation from "components/Navigation/Navigation";
 
-import { Header, LeftHalfHeader, RightHalfHeader, Tittle } from "./AppBar.styled";
+import {
+    Header, LeftHalfHeader, RightHalfHeader
+    // , Tittle
+} from "./UserBar.styled"
+import { Typography } from "@mui/material";
+
 
 // import styled from "./AppBar.module.css"
 
@@ -18,15 +23,27 @@ const AppBar = () => {
     const isLoggedIn = useSelector(selectIsLoggedIn);
 
     return (
-         < Header>
-            <LeftHalfHeader>           
-                <Tittle >Phonebook</Tittle>
+        <Header>
+            <LeftHalfHeader>
+                <Typography
+                    // color={"green"}
+                    variant="h2"
+                >Phonebook</Typography>
                 <Navigation />
-            </LeftHalfHeader>          
+            </LeftHalfHeader>
             < RightHalfHeader>
                 {isLoggedIn ? <UserMenu/> : <AuthNav/>}               
-            </RightHalfHeader>            
-        </ Header>
+            </RightHalfHeader>  
+        </Header>
+        //  < Header>
+        //     <LeftHalfHeader>           
+        //         <Tittle >Phonebook</Tittle>
+        //         <Navigation />
+        //     </LeftHalfHeader>          
+        //     < RightHalfHeader>
+        //         {isLoggedIn ? <UserMenu/> : <AuthNav/>}               
+        //     </RightHalfHeader>            
+        // </ Header>
         // <header className={styled.Header}>
         //     <div className={styled.LeftHalfHeader}>
         //         <h1 className={styled.Tittle}>Phonebook</h1>

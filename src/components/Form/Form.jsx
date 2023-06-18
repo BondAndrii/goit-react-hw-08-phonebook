@@ -9,7 +9,11 @@ import { nanoid } from "nanoid";
 import { addContact } from "redux/contacts/operations";
 
 // import styled from "./Form.module.css";
-import { ButtonStyled, FormStyled, Input, Label, TextStyled } from "./Form.styled";
+import {
+    // ButtonStyled,
+    FormStyled, Input, Label, TextStyled
+} from "./Form.styled";
+import { Button } from "@mui/material";
 
 export default function Form() {
     
@@ -96,7 +100,10 @@ export default function Form() {
                         required
                 />
             </Label>
-            <ButtonStyled type="submit">Запиши!</ButtonStyled>
+            <Button
+                style={{ width: "100px", marginLeft: "auto", marginRight: "auto", marginBottom: "20px" }}
+                variant="contained" type="submit">Запиши!</Button>
+            {/* <ButtonStyled type="submit">Запиши!</ButtonStyled> */}
         </FormStyled>
             // <form className={styled.Form} onSubmit={handleSubmit}>
             //     <label className={styled.Label} htmlFor={nameId}>

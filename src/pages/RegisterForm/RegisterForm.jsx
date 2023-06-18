@@ -3,7 +3,11 @@ import { useDispatch } from "react-redux";
 import { register } from "redux/auth/operations";
 
 // import styled from "./RegisterForm.module.css"
-import { ButtonStyled, Input, Label, RegisterFormStyled, TextStyled } from "./RegisterForm.styled";
+import {
+    // ButtonStyled,
+    Input, Label, RegisterFormStyled, TextStyled
+} from "./RegisterForm.styled";
+import { Button } from "@mui/material";
 
 
 const RegisterForm = () => {
@@ -77,7 +81,8 @@ const RegisterForm = () => {
                     onChange={handleChange}
                 />
             </Label>
-            <ButtonStyled type="submit">Log in</ButtonStyled>
+            <Button type="submit" variant="contained">Log in</Button>
+            {/* <ButtonStyled type="submit">Log in</ButtonStyled> */}
         </RegisterFormStyled>
         // <form className={styled.RegisterForm} onSubmit={handleSubmit}>
         //     <label className={styled.Label}> 

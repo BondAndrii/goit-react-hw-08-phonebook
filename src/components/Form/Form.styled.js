@@ -6,8 +6,9 @@ export const FormStyled = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background-color: beige;
-    border: 3px solid green;
+    /* align-items: center; */
+    background-color: white;
+    border: 3px solid #1976d2;
     border-radius: 20px;
 `
 export const Label = styled.label`
@@ -37,7 +38,7 @@ export const ButtonStyled = styled.button`
 `
 export const TextStyled = styled.p`
     margin-left: 20px;
-    color: green;
+    color: #1976d2;
     font-weight: 500;
     font-size: 20px;
 `

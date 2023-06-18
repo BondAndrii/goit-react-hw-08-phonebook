@@ -23,9 +23,13 @@ import { fetchContacts } from "redux/contacts/operations";
 import { openForm } from "redux/contacts/slice";
 
 // import styled from "./Contacts.module.css"
-import { ButtonAddContact, ContactsHeder, ContactsStyled, SecondTittle } from "./Contacts.styled";
+import {
+    // ButtonAddContact,
+    ContactsHeder, ContactsStyled, SecondTittle
+} from "./Contacts.styled";
 
 import { ErrorMessage } from "components/ErrorMessage/ErrorMessage";
+import { Button } from "@mui/material";
 
 // import { ErrorMessage } from "components/Error/error";
 
@@ -44,10 +48,17 @@ const Contacts = () => {
             <Filter />
             <ContactsHeder>
                 <SecondTittle>Контакти</SecondTittle>
-                <ButtonAddContact
+                <Button
+                     variant="contained"
                     type="button"
                     onClick={() => dispatch(openForm())}
-                >Додай!</ButtonAddContact>
+                >
+                    Додай!
+                </Button>
+                {/* <ButtonAddContact
+                    type="button"
+                    onClick={() => dispatch(openForm())}
+                >Додай!</ButtonAddContact> */}
             </ContactsHeder>
             {(isLoading && !error && <Loader />) || (error && <ErrorMessage/>
                 // <ErrorMessage />

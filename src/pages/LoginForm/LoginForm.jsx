@@ -3,7 +3,11 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { loginer } from "redux/auth/operations";
-import { ButtonStyled, Input, Label, LoginFormStyled, TextStyled } from "./LoginForm.styled";
+import {
+    // ButtonStyled,
+    Input, Label, LoginFormStyled, TextStyled
+} from "./LoginForm.styled";
+import { Button } from "@mui/material";
 // import { Button } from "@mui/material";
 
 // import styled from "./LoginForm.module.css"
@@ -61,7 +65,8 @@ const LoginForm = () => {
                     onChange={handleChange}
                 />
             </Label>
-            <ButtonStyled type="submit">Log in</ButtonStyled>
+            <Button type="submit" variant="contained">Log in</Button>
+            {/* <ButtonStyled type="submit">Log in</ButtonStyled> */}
         </LoginFormStyled>
         // <form className={styled.LoginForm} onSubmit={handleSubmit}>
         //     <label className={styled.Label}>

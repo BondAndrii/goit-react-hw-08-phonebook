@@ -15,7 +15,7 @@ export const ContactListElement= styled.li`
     justify-content: space-between;
 `
 export const TextStyled = styled.p`
-    color: green;
+    color: #1976d2;
     font-weight: 500;
     font-size: 20px;
 `

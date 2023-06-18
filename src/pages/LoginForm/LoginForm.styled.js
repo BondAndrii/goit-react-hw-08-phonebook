@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const LoginFormStyled = styled.form`
+    margin-top: 80px;
     margin-left: 50px;
     width: 560px;
     display: flex;
@@ -34,7 +35,7 @@ export const ButtonStyled = styled.button`
 `
 export const TextStyled = styled.p`
     margin-left: 20px;
-    color: green;
+    color: #1976d2;
     font-weight: 500;
     font-size: 20px;
 `

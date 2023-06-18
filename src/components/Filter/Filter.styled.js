@@ -5,6 +5,7 @@ export const LabelFilter = styled.label`
     width: 560px;
     height: 60px;
     align-items: center;
+    justify-content: space-between;
 `
 export const FilterInput = styled.input`
     align-items: center;
@@ -25,7 +26,7 @@ export const ButtonFilter = styled.button`
         font-size: 16px;
 `
 export const TextStyled = styled.p`
-    color: green;
+    color: #1976d2;
     font-weight: 500;
     font-size: 20px;
 `

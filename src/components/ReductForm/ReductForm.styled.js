@@ -7,7 +7,7 @@ export const ReductFormStyled = styled.form`
     flex-direction: column;
     justify-content: flex-end;
     background-color: beige;
-    border: 3px solid green;
+    border: 3px solid #9c27b0;
     border-radius: 20px;
 `
 export const Label = styled.label`
@@ -37,7 +37,7 @@ export const ButtonStyled = styled.button`
 `
 export const TextStyled = styled.p`
     margin-left: 20px;
-    color: red;
+    color: #9c27b0;
     font-weight: 500;
     font-size: 20px;
 `

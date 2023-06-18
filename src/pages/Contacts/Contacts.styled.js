@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const ContactsStyled = styled.div`
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,7 +13,7 @@ export const ContactsHeder = styled.div`
     width: 560px;
 `
 export const SecondTittle = styled.h2`
-    color: green;
+    color: #1976d2;
 `
 export const ButtonAddContact = styled.button`
  width: 100px;
