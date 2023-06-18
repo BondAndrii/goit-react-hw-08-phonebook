@@ -12,7 +12,7 @@ import Loader from "components/Loader/Loader";
 
 import Modal from "components/Modal/Modal";
 
-import { ErrorMessage } from "components/Error/Error";
+import { ErrorMessage } from "components/Error/error";
 
 import { selectError, selectIsLoading, selectModalOpen } from "redux/contacts/selectors";
 
