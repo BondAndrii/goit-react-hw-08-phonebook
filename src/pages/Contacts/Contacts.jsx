@@ -25,7 +25,7 @@ import { openForm } from "redux/contacts/slice";
 // import styled from "./Contacts.module.css"
 import { ButtonAddContact, ContactsHeder, ContactsStyled, SecondTittle } from "./Contacts.styled";
 
-import { ErrorMessage } from "components/Error/error";
+// import { ErrorMessage } from "components/Error/error";
 
 
 const Contacts = () => {
@@ -47,7 +47,10 @@ const Contacts = () => {
                     onClick={() => dispatch(openForm())}
                 >Додай!</ButtonAddContact>
             </ContactsHeder>
-            {(isLoading && !error && <Loader />) || (error && <ErrorMessage />) || <ContactList />} 
+            {(isLoading && !error && <Loader />) || (error
+                // &&
+                // <ErrorMessage />
+            ) || <ContactList />} 
             {isModalOpen && <Modal />}
         </ContactsStyled>
         // <div className={styled.Contacts} >            
