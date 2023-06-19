@@ -58,6 +58,7 @@ const contactsSlice = createSlice({
             // return state.modalOpen = !state.modalOpen; не катить, бо тут одночасно і ретурн і мутація, 
             // а можна або те, або інше
             state.modalOpen = true;
+            state.editForm = false;
         },
         openEditForm(state, action) {
             state.editUser = action.payload
