@@ -6,10 +6,6 @@ import {
     register
 } from "./operations";
 
-// import storage from 'redux-persist/lib/storage';
-
-// import persistReducer from 'redux-persist/es/persistReducer';
-
 const authSlice = createSlice({
     name: "auth",
     initialState: {
@@ -50,26 +46,8 @@ const authSlice = createSlice({
             })
         .addCase(refreshUser.rejected, state => {
             state.isRefreshing = false;
-        }),
-            // .addCase(refreshUser.pending, (state, action) => state.isRefreshing = true)
-            // .addCase(refreshUser.fulfilled, (state, action) => {
-            //     console.log("payload in refresh", action.payload )
-            //     state.user =  action.payload;
-            //     state.isLoggedIn = true;
-            //     state.isRefreshing = false;
-            // })
-            // .addCase(refreshUser.rejected, (state, action) => state.isRefreshing = false)
-        
+        }),        
         
 })
-
-// const authPersistConfig = {
-//     key: 'auth',
-//     storage,
-//     whitelist:['token'],
-  
-// }
-
-// export const persistedAuthReducer = persistReducer(authPersistConfig, authSlice.reducer)
 
 export const authReducer = authSlice.reducer;

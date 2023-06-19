@@ -14,14 +14,6 @@ export const selectEditForm = state => state.contacts.editForm;
 
 export const selectEditUser = state => state.contacts.editUser;
 
-// export const selectForm = createSelector(
-//     [selectModalOpen, selectEditForm], (modalOpen, form) => {
-//         if ((modalOpen && form) === true) {
-//             return true;
-//         }
-//     }
-// )
-
 export const selectFilteredContacts = createSelector(
     [selectContacts, selectFilter], (item, filter) => {
     if (!filter) {
@@ -35,17 +27,4 @@ export const selectFilteredContacts = createSelector(
     }
 )
 
-// export const selectFilteredContacts = state => {
-//     const item = selectContacts(state);
-//     const filter = selectFilter(state);
-
-    //  if (!filter) {
-    //   return item;
-    //  } else {
-    //     const normalizedFilter = filter.toLowerCase();
-    //     const findAbonent = item.filter(({ name, number }) => name.toLowerCase().trim().includes(normalizedFilter) || 
-    //         number.trim().includes(normalizedFilter)); 
-    //      return findAbonent;
-    // }
-// }
 

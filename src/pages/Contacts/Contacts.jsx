@@ -2,17 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Filter from "components/Filter/Filter";
 
-// import Form from "components/Form/Form";
-
-// import RedactForm from "components/RedactForm/RedactForm";
-
 import ContactList from "components/ContactList/ContactList";
 
 import Loader from "components/Loader/Loader";
 
 import Modal from "components/Modal/Modal";
-
-
 
 import { selectError, selectIsLoading, selectModalOpen } from "redux/contacts/selectors";
 
@@ -22,17 +16,11 @@ import { fetchContacts } from "redux/contacts/operations";
 
 import { openForm } from "redux/contacts/slice";
 
-// import styled from "./Contacts.module.css"
-import {
-    // ButtonAddContact,
-    ContactsHeder, ContactsStyled, SecondTittle
-} from "./Contacts.styled";
+import {ContactsHeder, ContactsStyled, SecondTittle} from "./Contacts.styled";
 
 import { ErrorMessage } from "components/ErrorMessage/ErrorMessage";
+
 import { Button } from "@mui/material";
-
-// import { ErrorMessage } from "components/Error/error";
-
 
 const Contacts = () => {
     const isModalOpen = useSelector(selectModalOpen);
@@ -55,30 +43,11 @@ const Contacts = () => {
                 >
                     Додай!
                 </Button>
-                {/* <ButtonAddContact
-                    type="button"
-                    onClick={() => dispatch(openForm())}
-                >Додай!</ButtonAddContact> */}
             </ContactsHeder>
             {(isLoading && !error && <Loader />) || (error && <ErrorMessage/>
-                // <ErrorMessage />
             ) || <ContactList />} 
             {isModalOpen && <Modal />}
         </ContactsStyled>
-        // <div className={styled.Contacts} >            
-        //     <Filter />
-        //     <div className={styled.ContactsHeder}>
-        //         <h2 className={styled.SecondTittle} >Контакти</h2>
-        //         <button
-        //             className={styled.ButtonAddContact}
-        //             type="button" onClick={() => dispatch(openForm())}
-        //         >
-        //             Додай!</button>
-        //     </div>
-            
-        //     {(isLoading && !error && <Loader />) || (error && <ErrorMessage />) || <ContactList />} 
-        //     {isModalOpen && <Modal />}
-        // </div>
     )
 }
 

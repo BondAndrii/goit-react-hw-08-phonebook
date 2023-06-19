@@ -3,14 +3,8 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import { loginer } from "redux/auth/operations";
-import {
-    // ButtonStyled,
-    Input, Label, LoginFormStyled, TextStyled
-} from "./LoginForm.styled";
+import {Input, Label, LoginFormStyled, TextStyled} from "./LoginForm.styled";
 import { Button } from "@mui/material";
-// import { Button } from "@mui/material";
-
-// import styled from "./LoginForm.module.css"
 
 const LoginForm = () => {
     const dispatch = useDispatch();
@@ -35,13 +29,11 @@ const LoginForm = () => {
             default:
                 return;
         }
-        // console.log("in change", value)
     }
     const handleSubmit = event => {
         event.preventDefault();
         const data = { email, password };
         dispatch(loginer(data));
-        // console.log("сабміт ін логін", data);
         reset(); 
     }
     return (
@@ -66,36 +58,7 @@ const LoginForm = () => {
                 />
             </Label>
             <Button type="submit" variant="contained">Log in</Button>
-            {/* <ButtonStyled type="submit">Log in</ButtonStyled> */}
         </LoginFormStyled>
-        // <form className={styled.LoginForm} onSubmit={handleSubmit}>
-        //     <label className={styled.Label}>
-        //         <p className={styled.Text}>Email:</p>
-        //         <input type="email"
-        //             className={styled.Input}
-        //             name="email"
-        //             value={email}
-        //             placeholder="enter your email"
-        //             onChange={handleChange}
-        //         />
-        //     </label>
-        //     <label className={styled.Label}>
-        //         <p className={styled.Text}>Password:</p>
-                
-        //         <input type="password"
-        //             className={styled.Input}
-        //             name="password"
-        //             value={password}
-        //             placeholder="remember your password"
-        //             onChange={handleChange}
-        //         />
-        //     </label>
-        //     <button
-        //         type="submit"
-        //         className={styled.Button}
-                
-        //     >Log in</button>
-        // </form>
     )
 }
 

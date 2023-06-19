@@ -6,11 +6,8 @@ import { selectFilter } from "redux/filter/selectors";
 
 import { addFilter, doClear } from "redux/filter/slice";
 
-// import styles from "./Filter.module.css"
-import {
-    // ButtonFilter,
-    FilterInput, LabelFilter, TextStyled
-} from "./Filter.styled";
+import { FilterInput, LabelFilter, TextStyled } from "./Filter.styled";
+
 import { Button } from "@mui/material";
 
 const Filter = () => {
@@ -38,24 +35,6 @@ const Filter = () => {
             >
                 Зітрись!
             </Button>
-            {/* <ButtonFilter
-                type="button"
-                onClick={()=>dispatch(doClear())}
-            >Зітрись!</ButtonFilter> */}
         </LabelFilter>
-    // <label className={styles.LabelFilter}>
-    //     <p className={styles.Text}>Пошук за ім'ям:</p> 
-    //     <input
-    //         type="text" value={filter}
-    //         className={styles.FilterInput}
-    //         placeholder="введи ім'я"
-    //         onChange={doFilter}
-    //     />
-    //         <button
-    //             className={styles.ButtonFilter}
-    //             type="button"
-    //             onClick={()=>dispatch(doClear())}
-    //         >Зітрись!</button>
-    // </label>
     )}
 export default Filter;

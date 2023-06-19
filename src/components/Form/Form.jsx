@@ -8,11 +8,8 @@ import { nanoid } from "nanoid";
 
 import { addContact } from "redux/contacts/operations";
 
-// import styled from "./Form.module.css";
-import {
-    // ButtonStyled,
-    FormStyled, Input, Label, TextStyled
-} from "./Form.styled";
+import { FormStyled, Input, Label, TextStyled } from "./Form.styled";
+
 import { Button } from "@mui/material";
 
 export default function Form() {
@@ -44,9 +41,7 @@ export default function Form() {
                 break;
             default:
                 return;
-        };
-        
-          
+        };         
     };
 
     const handleSubmit = e => {
@@ -56,18 +51,10 @@ export default function Form() {
             const message = `Абонент ${name} чи абонент з номером ${number} вже є в книзі`;
             alert(message);  
         }
-        else { 
-            
-            const data = {
-                // id: nanoid(),
-                name, number
-            };
-            // console.log("сабміт ін form", data);
+        else {             
+            const data = {name, number};
             dispatch(addContact(data));         
-        }  
-        
-       
-        
+        }        
         reset();         
     }
     return (        
@@ -103,43 +90,7 @@ export default function Form() {
             <Button
                 style={{ width: "100px", marginLeft: "auto", marginRight: "auto", marginBottom: "20px" }}
                 variant="contained" type="submit">Запиши!</Button>
-            {/* <ButtonStyled type="submit">Запиши!</ButtonStyled> */}
-        </FormStyled>
-            // <form className={styled.Form} onSubmit={handleSubmit}>
-            //     <label className={styled.Label} htmlFor={nameId}>
-            //         <p className={styled.Text}>Iм'я:</p>
-            //         <input
-            //             type="text"
-            //             name="names"
-            //             className={styled.Input}
-            //             id={nameId}
-            //             value={name}
-            //             onChange={handleChange}
-            //             placeholder="введи ім'я"
-            //             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            //             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            //             required
-            //         />
-            //     </label>
-               
-            //     <label className={styled.Label} htmlFor={numberId}>
-            //         <p className={styled.Text}>Номер:</p>
-            //         <input
-            //             type="tel"
-            //             name="number"
-            //             className={styled.Input}
-            //             value={number}
-            //             id={numberId}
-            //             onChange={handleChange}
-            //             placeholder="введи номер телефону"
-            //             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-            //             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            //             required
-            //         />
-            //     </label>
-                
-            //     <button className={styled.Button} type="submit">Запиши!</button>
-            // </form>               
+        </FormStyled>             
         );
     
 }
